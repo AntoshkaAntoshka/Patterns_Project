@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}
+Создание курса
+{% endblock %}
+
+{% block style %}
+	{% include "inc_style.html" %}
+{% endblock %}
+
+{% block menu %}
+	{% include "inc_menu.html" %}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <li>
+            <a href="/reader-user-list/">Список пользователей</a>
+        </li>
+        <li>
+            <a href="/create-reader-user/">Создать пользователя</a>
+        </li>
+    </div>
+    <h1>Добавить флаг пользователю</h1> 
+    <form method="post">
+        <select size="3" name="flag_name">
+            {% for item in flags %}
+            <option value="{{item.name}}">{{item.name}}</option>
+            {% endfor %}
+        </select>
+        <select size="3" name="reader_user_name">
+            {% for item in reader_users %}
+            <option value="{{item.name}}">{{item.name}}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Записать</button>
+    </form>
+{% endblock %}

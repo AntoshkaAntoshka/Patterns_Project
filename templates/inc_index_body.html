@@ -1,0 +1,47 @@
+<div id="site_content">
+    <div id="content">
+      <h1>Добро пожаловать на "Флаги стран мира"!</h1>
+      <p>На сайте представлена галерея флагов: история, интересные факты, значение геральдической символики и их изменение с течением времени.</p>
+      <p>Флаги стран мира, отдельных регионов, городов, организаций.</p>
+    </div>
+    <br>
+    <div>
+      <a href="/create-category/">Создать новую категорию</a>
+    </div>
+    <br>
+    <div>
+      <h2>Список существующих категорий</h2>
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span>Количество флагов: {{item.flag_count()}}</span>
+            <a href="/flags-list/?id={{item.id}}">Показать флаги</a>
+        </li>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <hr>
+    <div>
+    <br>
+      <li>
+          <a href="/reader-user-list/">Список пользователей</a>
+      </li><br>
+      <li>
+          <a href="/create-reader-user/">Создать пользователя</a>
+      </li><br>
+      <li>
+          <a href="/add-reader-user/">Добавить флаг пользователю</a>
+      </li><br>
+    </div>
+</div>
+    <br>
+    <form action="" method="post">
+    <fieldset>
+        <legend>Зарегистрируйтесь</legend>
+        <p><label class="title" for="name">Ваше имя:</label>
+            <input type="text" name="name" id="name"><br />
+            <label class="title" for="email">Ваш e-mail:</label>
+            <input type="text" name="email" id="email"></p>
+    </fieldset>
+    <div class="submit"><input type="submit" value="Регистрация" /></div>
+    </form>

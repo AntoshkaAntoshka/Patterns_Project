@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Список флагов
+{% endblock %}
+
+{% block style %}
+	{% include "inc_style.html" %}
+{% endblock %}
+
+{% block menu %}
+	{% include "inc_menu.html" %}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <a href="/">На главную страницу</a>
+    </div>
+    <br>
+    <br>
+    <div>
+        <a href="/create-flag/?id={{id}}">Создать новый флаг</a>
+        <br>
+        <h1>Список флагов для категории "{{name}}"</h1>
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span><a href="/copy-flag/?name={{item.name}}">Скопировать</a></span>
+        </li>
+        {% endfor %}
+    </div>
+{% endblock %}

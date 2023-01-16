@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Список флагов
+{% endblock %}
+
+{% block style %}
+    {% include "inc_style.html" %}
+{% endblock %}
+
+{% block menu %}
+    {% include "inc_menu.html" %}
+{% endblock %}
+
+{% block body %}
+    <a href="/">На главную страницу</a>
+    
+    <h1>Список категорий</h1>
+    <ul>
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span>Количество флагов: {{item.flag_count()}}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+	<div>
+		<li><a href="/flags-list/">Список флагов</a></li>
+		<li><a href="/create-flag/">Создать флаг</a></li>
+	</div>
+{% endblock %}

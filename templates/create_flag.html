@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Создание флага
+{% endblock %}
+
+{% block style %}
+	{% include "inc_style.html" %}
+{% endblock %}
+
+{% block menu %}
+	{% include "inc_menu.html" %}
+{% endblock %}
+
+{% block body %}
+    <div>
+        <a href="/flags-list/?id={{id}}">Назад</a>
+    </div>
+    <br>
+    <br>
+    <div>
+        <h1>Создание флага для категории "{{name}}"</h1>
+        <form method="post">
+            <input type="text" name="name" placeholder="Название">
+            <button type="submit">Сохранить и вернуться к списку флагов</button>
+        </form>
+    </div>
+{% endblock %}
